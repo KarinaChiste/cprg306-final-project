@@ -7,7 +7,17 @@ export function Character(props){
       <ul>
         <li>Name:{props.name}</li>
         <li>Image <img src={props.imageUrl} /> </li>
-        <li>Media</li>
+        <li>Media:
+            <ul>
+              {Array.isArray(props.media) &&
+            props.media.map((iteration, index) => (
+              <li key={index}>
+                  {iteration}
+              </li>
+            ))}
+            </ul>
+
+        </li>
       </ul>
     </div>
   );

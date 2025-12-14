@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Character } from "./character";
 
-async function fetchCharacter(character) 
+async function fetchCharacter(character, selectedMedia) 
 {
   try{
     const response = await fetch(`https://api.disneyapi.dev/character?name=${encodeURIComponent(character)}`);
@@ -34,7 +34,7 @@ async function fetchCharacter(character)
 
 
 
-export function Media({character})
+export function Media({character, selectedMedia})
 {
   const [characters, setCharacters] = useState([]);
 
@@ -60,7 +60,7 @@ export function Media({character})
           {Array.isArray(characters) &&
             characters.map((char) => (
               <li key={char._id}>
-                  <Character name={char.name} imageUrl={char.imageUrl}/>
+                  <Character name={char.name} imageUrl={char.imageUrl} media={char[selectedMedia]}/>
               </li>
             ))
           }
