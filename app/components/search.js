@@ -15,12 +15,12 @@ export function Search({onSearch}){
   }
   
   return(
-    <div>
+    <div className="justify-center my-10">
       <form onSubmit={handleSubmit}>
-        <label> Enter Character Name:</label>
-        <input required value={name} type="text" onChange={handleNameChange} />
+        <label className="text-white mr-2"> Enter Character Name:</label>
+        <input required value={name} type="text" onChange={handleNameChange} className=" border-white bg-white"/>
 
-        <button type="submit">Search</button>
+        <button type="submit" className="bg-blue-300 rounded-2xl p-3 m-2">Search</button>
       </form>
     </div>
   );
